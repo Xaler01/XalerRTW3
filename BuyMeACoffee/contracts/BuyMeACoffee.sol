@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-//Deployed to mumbai at 0xDFF7FE6ecd3bDfb04546aa9C54fa2fe089c8354B
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BuyMeACoffee {
+//Deployed to mumbai at 0xc0953968CC0f08Dfb4daF1AE71b061BBF3e2b50c
+
+contract BuyMeACoffee is Ownable{
     //Event to emit when a memo is created
     event NewMemo(
         address indexed from,
@@ -24,15 +26,15 @@ contract BuyMeACoffee {
     Memo[] memos;
 
     //Address of Contract Deployed
-    address payable owner;
+    address payable Owner;
 
     //Deploy logic
     constructor(){
-        owner = payable(msg.sender);
+        Owner = payable(msg.sender);
     }
 
     /**
-    * @dev buy coffe for contract owner
+    * @dev buy coffe for contract Owner
     * @param _name name of the coffee buyer
     * @param _message a nice message from the coffee buyer
      */
@@ -57,10 +59,10 @@ contract BuyMeACoffee {
      }
 
      /**
-    * @dev send the entery balance on the contract to the owner
+    * @dev send the entery balance on the contract to the Owner
      */   
-    function withDrawTips() public {
-        require(owner.send(address(this).balance));
+    function withDrawTips() public onlyOwner{
+        require(Owner.send(address(this).balance));
     }
 
     /**
