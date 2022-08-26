@@ -1,0 +1,28 @@
+{
+  "name": "dynamicnft",
+  "version": "1.0.0",
+  "description": "App que crea NFTs dinamicos",
+  "main": "index.js",
+  "scripts": {
+    "test": "testAJ"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xaler01/XalerRTW3.git"
+  },
+  "author": "Xaler01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xaler01/XalerRTW3/issues"
+  },
+  "homepage": "https://github.com/Xaler01/XalerRTW3#readme",
+  "dependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@openzeppelin/contracts": "^4.7.3",
+    "dotenv": "^16.0.1",
+    "hardhat": "^2.10.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2"
+  }
+}
