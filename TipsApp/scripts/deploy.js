@@ -2,10 +2,10 @@ const hre = require ("hardhat");
 
 async function main (){
   //Get the contract to deploy and deployed
-  const BuyMeACoffee = await hre.ethers.getContractFactory ("BuyMeACoffee");
-  const buyMeACoffee = await BuyMeACoffee.deploy();
-  await buyMeACoffee.deployed();
-  console.log("BuyMeACoffee is deployed to ", buyMeACoffee.address, "by Xaler");
+  const TipsApp = await hre.ethers.getContractFactory ("TipsApp");
+  const tipsApp = await TipsApp.deploy();
+  await tipsApp.deployed();
+  console.log("TipsApp is deployed to ", tipsApp.address, "by Xaler");
 
 }
 

@@ -3,9 +3,9 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-//Deployed to mumbai at 0xc0953968CC0f08Dfb4daF1AE71b061BBF3e2b50c
+//Deployed to mumbai at 0x1806CB80B14a02B0e220C3885a9F03a8404EEaB1
 
-contract BuyMeACoffee is Ownable{
+contract TipsApp is Ownable{
     //Event to emit when a memo is created
     event NewMemo(
         address indexed from,

@@ -1,7 +1,7 @@
 // scripts/withdraw.js
 
 const hre = require("hardhat");
-const abi = require("../artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json");
+const abi = require("../artifacts/contracts/TipsApp.sol/TipsApp.json");
 
 async function getBalance(provider, address) {
   const balanceBigInt = await provider.getBalance(address);
@@ -21,17 +21,17 @@ async function main() {
   const signer = new hre.ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
   // Instantiate connected contract.
-  const buyMeACoffee = new hre.ethers.Contract(contractAddress, contractABI, signer);
+  const tipsApp = new hre.ethers.Contract(contractAddress, contractABI, signer);
 
   // Check starting balances.
   console.log("Current balance of owner: ", await getBalance(provider, signer.address), "ETH");
-  const contractBalance = await getBalance(provider, buyMeACoffee.address);
-  console.log("Current balance of contract: ", await getBalance(provider, buyMeACoffee.address), "ETH");
+  const contractBalance = await getBalance(provider, tipsApp.address);
+  console.log("Current balance of contract: ", await getBalance(provider, tipsApp.address), "ETH");
 
   // Withdraw funds if there are funds to withdraw.
   if (contractBalance !== "0.0") {
     console.log("Withdrawing funds..")
-    const withdrawTxn = await buyMeACoffee.withDrawTips();
+    const withdrawTxn = await tipsApp.withDrawTips();
     await withdrawTxn.wait();
   } else {
     console.log("No funds to withdraw!");
